@@ -1,0 +1,31 @@
+{
+  "name": "organic-emailpreview",
+  "version": "0.0.1",
+  "description": "Email preview (dev use only)",
+  "main": "index.js",
+  "author": {
+    "name": "Dimitar Mirchev"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "async": "~0.2.10",
+    "bluebird": "^2.9.32",
+    "bower": "^1.6.3",
+    "ejs": "^2.3.4",
+    "email-templates": "^2.0.0-beta.4",
+    "express": "^4.13.3",
+    "glob": "^5.0.14",
+    "jade": "^1.11.0",
+    "nodemailer": "0.6.0",
+    "ramda": "^0.15.1"
+  },
+  "devDependencies": {
+    "jasmine-node": "~1.13.1",
+    "organic-plasma": "0.0.6"
+  },
+  "keywords": [
+    "organic",
+    "email",
+    "preview"
+  ]
+}

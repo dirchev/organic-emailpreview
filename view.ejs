@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Organic Email Preview</title>
+  </head>
+  <body>
+    <% emails %>
+    <% for(var i=0; i<emails.length; i++) {%>
+       <div style="width: 100%;">
+         <h3>Email send to: <%= emails[i].to %></h3>
+         <div>
+           <%- emails[i].html %>
+         </div>
+       </div>
+    <% } %>
+  </body>
+</html>
