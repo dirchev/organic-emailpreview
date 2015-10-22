@@ -20,12 +20,12 @@ With chemical:
 
 ```js
 {
-  to: String                // if config.toEmailAddress is set
-  from: String              // if config.fromEmailAddress is set
+  to: String                // if config.toEmailAddress is not set
+  from: String              // if config.fromEmailAddress is not set
   template: String          // the name of the folder, where the template is located
   locale: String            //
   sendMailOptions: Object   //
-  data: Object              // data, that will be passed to the template
+  data: Object              //
 }
 ```
 
