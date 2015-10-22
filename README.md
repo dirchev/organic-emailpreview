@@ -1,4 +1,4 @@
-# organic-emailpreview v0.1.1
+# organic-emailpreview v0.0.1
 
 A simple email sender with jade and i18next templates.
 
