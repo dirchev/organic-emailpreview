@@ -34,6 +34,11 @@ module.exports = function (plasma, dna) {
       .then(function (res) { next(null, res) })
       .catch(function (err) { next(err) })
   })
+  plasma.on(dna.closeOn || 'kill', function (c, next) {
+    server.close(function () {
+      next()
+    })
+  })
 }
 
 module.exports.prototype.sendEmail = function (options) {
