@@ -1,4 +1,4 @@
-# organic-emailpreview v0.0.1
+# organic-emailpreview v0.0.3
 
 A simple email sender with jade and i18next templates.
 
@@ -24,6 +24,7 @@ With chemical:
   from: String              // if config.fromEmailAddress is not set
   template: String          // the name of the folder, where the template is located
   locale: String            //
+  subject: String            //
   sendMailOptions: Object   //
   data: Object              //
 }
