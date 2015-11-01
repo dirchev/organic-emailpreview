@@ -1,10 +1,10 @@
 {
   "name": "organic-emailpreview",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Email preview (dev use only)",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower cache clean && bower install",
+    "postinstall": "bower cache clean && bower install"
   },
   "author": "Dimitar Mirchev <dirchev@camplight.com>",
   "license": "MIT",
