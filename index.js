@@ -5,9 +5,51 @@ var async = require('async')
 var R = require('ramda')
 var Promise = require('bluebird')
 var express = require('express')
+var bodyParser = require('body-parser')
 
 var pathIsFull = function (value) {
   return value.indexOf('/') === 0 || value.indexOf(':\\') === 1
+}
+
+var setUpServer = function (plasma, dna) {
+  var app = express()
+
+  /* SERVER CONFIG */
+  app.set('view engine', 'ejs')
+  app.use(express.static(__dirname + '/bower_components'))
+  app.use(bodyParser.urlencoded({ extended: false }))
+
+  /* SERVER ROUTES */
+  app.get('/', function (req, res) {
+    res.render(__dirname + '/templates/view', {emails: emails})
+  })
+  app.get('/email/:emailIndex', function (req, res) {
+    res.render(__dirname + '/templates/email', {email: emails[req.params.emailIndex]})
+  })
+
+  var server = app.listen(dna.port || 3212, function () {
+    console.log('Organic emailpreview listening at http://localhost:%s', server.address().port)
+  })
+
+  var sockets = {}
+  var nextSocketId = 0
+
+  server.on('connection', function (socket) {
+    var socketId = nextSocketId++
+    sockets[socketId] = socket
+    socket.on('close', function () {
+      delete sockets[socketId]
+    })
+  })
+
+  plasma.on(dna.closeOn || 'kill', function (c, next) {
+    for (var socketId in sockets) {
+      sockets[socketId].destroy()
+    }
+    server.close(function () {
+      next()
+    })
+  })
 }
 
 var emails = []
@@ -17,27 +59,13 @@ module.exports = function (plasma, dna) {
   this.dna = dna
   this.templateCache = {}
 
-  var app = express()
-  app.set('view engine', 'ejs')
-  app.get('/', function (req, res) {
-    res.render(__dirname + '/view', {emails: emails})
-  })
-
-  var server = app.listen(dna.port || 3212, function () {
-    var port = server.address().port
-    console.log('Example app listening at http://localhost:%s', port)
-  })
+  setUpServer(plasma, dna)
 
   var self = this
   plasma.on(dna.reactOn || 'sendEmail', function (c, next) {
     self.sendEmail(c)
       .then(function (res) { next(null, res) })
       .catch(function (err) { next(err) })
-  })
-  plasma.on(dna.closeOn || 'kill', function (c, next) {
-    server.close(function () {
-      next()
-    })
   })
 }
 
