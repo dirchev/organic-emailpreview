@@ -1,21 +1,23 @@
 {
   "name": "organic-emailpreview",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Email preview (dev use only)",
   "main": "index.js",
-  "author": {
-    "name": "Dimitar Mirchev"
+  "scripts": {
+    "postinstall": "bower cache clean && bower install",
   },
+  "author": "Dimitar Mirchev <dirchev@camplight.com>",
   "license": "MIT",
   "dependencies": {
     "async": "~0.2.10",
     "bluebird": "^2.9.32",
-    "bower": "^1.6.3",
+    "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
     "email-templates": "^2.0.0-beta.4",
     "express": "^4.13.3",
     "glob": "^5.0.14",
     "jade": "^1.11.0",
+    "less": "^2.5.3",
     "nodemailer": "0.6.0",
     "ramda": "^0.15.1"
   },
