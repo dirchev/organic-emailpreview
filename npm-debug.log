@@ -1,0 +1,100 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/dirchev/Development/organic-emailpreview',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/dirchev/.npm/organic-emailpreview/0.0.3/package.tgz not in flight; packing
+9 verbose tar pack [ '/home/dirchev/.npm/organic-emailpreview/0.0.3/package.tgz',
+9 verbose tar pack   '/home/dirchev/Development/organic-emailpreview' ]
+10 verbose tarball /home/dirchev/.npm/organic-emailpreview/0.0.3/package.tgz
+11 verbose folder /home/dirchev/Development/organic-emailpreview
+12 info prepublish organic-emailpreview@0.0.3
+13 verbose addLocalTarball adding from inside cache /home/dirchev/.npm/organic-emailpreview/0.0.3/package.tgz
+14 silly cache afterAdd organic-emailpreview@0.0.3
+15 verbose afterAdd /home/dirchev/.npm/organic-emailpreview/0.0.3/package/package.json not in flight; writing
+16 verbose afterAdd /home/dirchev/.npm/organic-emailpreview/0.0.3/package/package.json written
+17 silly publish { name: 'organic-emailpreview',
+17 silly publish   version: '0.0.3',
+17 silly publish   description: 'Email preview (dev use only)',
+17 silly publish   main: 'index.js',
+17 silly publish   scripts: { postinstall: 'bower cache clean && bower install' },
+17 silly publish   author: { name: 'Dimitar Mirchev', email: 'dirchev@camplight.com' },
+17 silly publish   license: 'MIT',
+17 silly publish   dependencies:
+17 silly publish    { async: '~0.2.10',
+17 silly publish      bluebird: '^2.9.32',
+17 silly publish      'body-parser': '^1.14.1',
+17 silly publish      ejs: '^2.3.4',
+17 silly publish      'email-templates': '^2.0.0-beta.4',
+17 silly publish      express: '^4.13.3',
+17 silly publish      glob: '^5.0.14',
+17 silly publish      jade: '^1.11.0',
+17 silly publish      less: '^2.5.3',
+17 silly publish      nodemailer: '0.6.0',
+17 silly publish      ramda: '^0.15.1' },
+17 silly publish   devDependencies: { 'jasmine-node': '~1.13.1', 'organic-plasma': '0.0.6' },
+17 silly publish   keywords: [ 'organic', 'email', 'preview' ],
+17 silly publish   readme: '# organic-emailpreview v0.0.3\n\nA simple email sender with jade and i18next templates.\n\n## DNA\n\n```js\n{\n  reactOn: String    // default "sendEmail"\n  from: String       // default email address\n  to: String         // default email address\n  root: String       // [required] path, containing the email templates\n  port: String       // port for the express server, default 3212\n}\n```\n\n## Reaction\n\nWith chemical:\n\n```js\n{\n  to: String                // if config.toEmailAddress is not set\n  from: String              // if config.fromEmailAddress is not set\n  template: String          // the name of the folder, where the template is located\n  locale: String            //\n  subject: String            //\n  sendMailOptions: Object   //\n  data: Object              //\n}\n```\n\n* Loads a jade template by `config.root`+ `template` + (optionally -`locale`) + .jade path\n* renders the template with `data`\n\n## `template` property\n\n  * can be a path to jade template file\n  * can be a path to directory, rendering final template html will be via [email-templates](https://github.com/niftylettuce/node-email-templates)\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: '3674c3306dc4cac5f7a013feaf5228fcedc7f80d',
+17 silly publish   _id: 'organic-emailpreview@0.0.3',
+17 silly publish   _shasum: 'fd36daeba8c4610b2c6ef9964f802dd3343aafc7',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name organic-emailpreview
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/organic-emailpreview
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /home/dirchev/.npm/organic-emailpreview/0.0.3/package.tgz
+25 verbose request uri https://registry.npmjs.org/organic-emailpreview
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 13:12:44
+28 verbose request using bearer token for auth
+29 verbose request id e1efa2afb5e999af
+30 http request PUT https://registry.npmjs.org/organic-emailpreview
+31 http 403 https://registry.npmjs.org/organic-emailpreview
+32 verbose headers { 'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=60',
+32 verbose headers   'content-length': '95',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Mon, 09 Nov 2015 13:12:49 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-lhr6333-LHR',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1447074764.809931,VS0,VE4736' }
+33 verbose request invalidating /home/dirchev/.npm/registry.npmjs.org/organic-emailpreview on PUT
+34 error publish Failed PUT 403
+35 verbose stack Error: "You cannot publish over the previously published version 0.0.3." : organic-emailpreview
+35 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+35 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+35 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:354:22)
+35 verbose stack     at Request.emit (events.js:110:17)
+35 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1207:14)
+35 verbose stack     at Request.emit (events.js:129:20)
+35 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1153:12)
+35 verbose stack     at IncomingMessage.emit (events.js:129:20)
+35 verbose stack     at _stream_readable.js:908:16
+35 verbose stack     at process._tickCallback (node.js:355:11)
+36 verbose statusCode 403
+37 verbose pkgid organic-emailpreview
+38 verbose cwd /home/dirchev/Development/organic-emailpreview
+39 error Linux 3.19.0-31-generic
+40 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+41 error node v0.12.7
+42 error npm  v2.11.3
+43 error code E403
+44 error "You cannot publish over the previously published version 0.0.3." : organic-emailpreview
+45 error If you need help, you may report this error at:
+45 error     <https://github.com/npm/npm/issues>
+46 verbose exit [ 1, true ]
