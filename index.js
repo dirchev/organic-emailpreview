@@ -73,6 +73,7 @@ module.exports.prototype.sendEmail = function (options) {
   var self = this
 
   function checkOptions (template) {
+    var deferred = Promise.defer()
     var subject = options.subject
     options.template = template
 
@@ -96,7 +97,8 @@ module.exports.prototype.sendEmail = function (options) {
       options.subject = subject
     }
 
-    return options
+    deferred.resolve(options)
+    return deferred.promise
   }
 
   function renderTmpl (options) {
