@@ -1,6 +1,6 @@
 {
   "name": "organic-emailpreview",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Email preview (dev use only)",
   "main": "index.js",
   "scripts": {
@@ -9,25 +9,25 @@
   "author": "Dimitar Mirchev <dirchev@camplight.com>",
   "license": "MIT",
   "dependencies": {
-    "async": "~0.2.10",
-    "bluebird": "^2.9.32",
     "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
-    "email-templates": "^2.0.0-beta.4",
     "express": "^4.13.3",
-    "glob": "^5.0.14",
-    "jade": "^1.11.0",
-    "less": "^2.5.3",
-    "nodemailer": "0.6.0",
-    "ramda": "^0.15.1"
+    "less": "^2.5.3"
   },
-  "devDependencies": {
-    "jasmine-node": "~1.13.1",
-    "organic-plasma": "0.0.6"
+  "peerDependencies": {
+    "organic-plasma": "0.0.x"
   },
   "keywords": [
     "organic",
     "email",
     "preview"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dirchev/organic-emailpreview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dirchev/organic-emailpreview/issues"
+  },
+  "homepage": "https://github.com/dirchev/organic-emailpreview"
 }
