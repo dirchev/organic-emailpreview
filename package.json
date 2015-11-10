@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.1",
+    "bower": "^1.6.5",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "less": "^2.5.3"
