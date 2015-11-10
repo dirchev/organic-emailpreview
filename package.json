@@ -4,9 +4,14 @@
   "description": "Email preview (dev use only)",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower cache clean && bower install"
+    "postinstall": "node node_modules/bower/bin/bower cache clean && node node_modules/bower/bin/bower install"
   },
   "author": "Dimitar Mirchev <dirchev@camplight.com>",
+  "contributors": [
+    {
+      "name": "Boris Filipov"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.1",
