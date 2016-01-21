@@ -20,9 +20,6 @@
     "express": "^4.13.3",
     "less": "^2.5.3"
   },
-  "peerDependencies": {
-    "organic-plasma": "0.0.x"
-  },
   "keywords": [
     "organic",
     "email",
