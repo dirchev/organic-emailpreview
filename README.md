@@ -1,4 +1,4 @@
-# organic-emailpreview v0.1.0
+# organic-emailpreview v0.1.1
 
 A simple email preview
 
