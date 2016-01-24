@@ -4,7 +4,7 @@
   "description": "Email preview (dev use only)",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node node_modules/bower/bin/bower cache clean && node node_modules/bower/bin/bower install"
+    "postinstall": "node node_modules/.bin/bower cache clean && node node_modules/.bin/bower install"
   },
   "author": "Dimitar Mirchev <dirchev@camplight.com>",
   "contributors": [
