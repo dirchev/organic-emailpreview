@@ -1,6 +1,6 @@
 {
   "name": "organic-emailpreview",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Email preview (dev use only)",
   "main": "index.js",
   "author": "Dimitar Mirchev <dirchev@camplight.com>",
