@@ -1,6 +1,6 @@
 {
   "name": "organic-emailpreview",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Email preview (dev use only)",
   "main": "index.js",
   "scripts": {
