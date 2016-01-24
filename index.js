@@ -1,4 +1,5 @@
 var express = require('express')
+var fs = require('fs')
 var bodyParser = require('body-parser')
 
 var emails = []
@@ -8,11 +9,17 @@ var setUpServer = function (plasma, dna) {
 
   /* SERVER CONFIG */
   app.set('view engine', 'ejs')
-  app.use(express.static(__dirname + '/bower_components'))
   app.use(bodyParser.urlencoded({ extended: false }))
 
   /* SERVER ROUTES */
+  app.get('/bootstrap.min.css', function (req, res) {
+    res.sendFile(__dirname + '/node_modules/bootstrap/dist/css/bootstrap.min.css', 'utf8')
+  })
   app.get('/', function (req, res) {
+    emails = emails.map(function (email) {
+      email.jsonPresentation = JSON.stringify(email.data, null, 4)
+      return email
+    })
     res.render(__dirname + '/templates/view', {emails: emails})
   })
   app.get('/email/:emailIndex', function (req, res) {
