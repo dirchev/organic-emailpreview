@@ -1,8 +1,7 @@
 var express = require('express')
 var fs = require('fs')
-var path = require('path')
 var bodyParser = require('body-parser')
-var bootstrapPath = require.resolve('bootstrap')
+var bootstrapPath = require.resolve('bootstrap/dist/css/bootstrap.min.css')
 
 var emails = []
 
@@ -15,7 +14,7 @@ var setUpServer = function (plasma, dna) {
 
   /* SERVER ROUTES */
   app.get('/bootstrap.min.css', function (req, res) {
-    res.sendFile(path.join(bootstrapPath, 'dist/css/bootstrap.min.css'), 'utf8')
+    res.sendFile(bootstrapPath, 'utf8')
   })
   app.get('/', function (req, res) {
     emails = emails.map(function (email) {
