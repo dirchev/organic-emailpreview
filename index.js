@@ -16,16 +16,35 @@ var setUpServer = function (plasma, dna) {
   app.get('/bootstrap.min.css', function (req, res) {
     res.sendFile(bootstrapPath, 'utf8')
   })
-  app.get('/', function (req, res) {
+
+  var auth = require('basic-auth')
+  var authMiddleware
+  if (dna.auth && dna.auth.username && dna.auth.password) {
+    authMiddleware = function (req, res, next) {
+      var credentials = auth(req)
+      if (!credentials || credentials.name !== dna.auth.username || credentials.pass !== dna.auth.password) {
+        res.statusCode = 401
+        res.setHeader('WWW-Authenticate', 'Basic realm="Organic Emailpreview Login"')
+        res.end('Access denied')
+        return
+      }
+
+      next()
+    }
+  } else {
+    authMiddleware = (req, res, next) => { next() }
+  }
+
+  app.get('/', [authMiddleware, function (req, res) {
     emails = emails.map(function (email) {
       email.jsonPresentation = JSON.stringify(email.data, null, 4)
       return email
     })
     res.render(__dirname + '/templates/view', {emails: emails})
-  })
-  app.get('/email/:emailIndex', function (req, res) {
+  }])
+  app.get('/email/:emailIndex', [authMiddleware, function (req, res) {
     res.render(__dirname + '/templates/email', {email: emails[req.params.emailIndex]})
-  })
+  }])
 
   var server = app.listen(dna.port || 3212, function () {
     console.log('Organic emailpreview listening at http://localhost:%s', server.address().port)
