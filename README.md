@@ -6,7 +6,11 @@ A simple email preview
 
 ```js
 {
-  reactOn: String    // default "deliverEmail"
+  "reactOn": String,    // default "deliverEmail"
+  "auth": { // optional - provides HTTP basic auth
+    "username": String,
+    "password": String
+  }
 }
 ```
 
